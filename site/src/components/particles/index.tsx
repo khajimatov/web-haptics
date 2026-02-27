@@ -15,7 +15,7 @@ type Particle = {
 };
 
 type ParticlesContextValue = {
-  create: (x: number, y: number, emoji?: string) => void;
+  create: (x: number, y: number, emojis: string[]) => void;
 };
 
 const ParticlesContext = createContext<ParticlesContextValue | null>(null);
@@ -60,49 +60,53 @@ export const ParticlesProvider = ({
     }
   });
 
-  const create = useCallback((x: number, y: number, emoji = "❤️") => {
-    const pointer = document.getElementById("delight-container-pointer");
-    if (pointer) {
-      pointer.style.left = x + "px";
-      pointer.style.top = y + "px";
-      pointer.style.opacity = "1";
-      pointer.style.width = "3.5rem";
-      pointer.style.height = "3.5rem";
-      pointer.style.transitionDuration = "100ms";
-      clearTimeout(pointerTimeout.current);
-      pointerTimeout.current = setTimeout(() => {
-        pointer.style.opacity = "0";
-        pointer.style.width = "2rem";
-        pointer.style.height = "2rem";
-        pointer.style.transitionDuration = "600ms";
-      }, 200);
-    }
+  const create = useCallback(
+    (x: number, y: number, emojis: string[] = ["✨", "🔥"]) => {
+      const pointer = document.getElementById("delight-container-pointer");
+      if (pointer) {
+        pointer.style.left = x + "px";
+        pointer.style.top = y + "px";
+        pointer.style.opacity = "1";
+        pointer.style.width = "3.5rem";
+        pointer.style.height = "3.5rem";
+        pointer.style.transitionDuration = "100ms";
+        clearTimeout(pointerTimeout.current);
+        pointerTimeout.current = setTimeout(() => {
+          pointer.style.opacity = "0";
+          pointer.style.width = "2rem";
+          pointer.style.height = "2rem";
+          pointer.style.transitionDuration = "600ms";
+        }, 200);
+      }
 
-    const amount = 4;
+      const amount = 4;
 
-    if (particles.current.length > MAX_PARTICLES) return;
+      if (particles.current.length > MAX_PARTICLES) return;
 
-    for (let i = 0; i < amount; i++) {
-      const element = document.createElement("div");
-      element.className = `${styles.particle}`;
-      containerRef.current?.appendChild(element);
-      element.style.fontSize = 20 + Math.ceil(Math.random() * 40) + "px";
-      element.className += " icon-0" + Math.ceil(Math.random() * 5);
-      element.innerHTML = emoji;
+      for (let i = 0; i < amount; i++) {
+        const element = document.createElement("div");
+        element.className = `${styles.particle}`;
+        containerRef.current?.appendChild(element);
+        element.style.fontSize = 20 + Math.ceil(Math.random() * 40) + "px";
+        element.className += " icon-0" + Math.ceil(Math.random() * 5);
+        element.innerHTML =
+          emojis[Math.floor(Math.random() * emojis.length)] || "✨";
 
-      particles.current.push({
-        x: x - 10,
-        y: y - 10,
-        yv:
-          (i === 0 ? 4 : i === 1 ? 8 : i === 2 ? 8 : 0) *
-          (0.25 + Math.random() * 0.25),
-        xv: (i < 2 ? i - 2 : i - 1) * 3,
-        s: 0.2,
-        a: 0,
-        el: element,
-      });
-    }
-  }, []);
+        particles.current.push({
+          x: x - 10,
+          y: y - 10,
+          yv:
+            (i === 0 ? 4 : i === 1 ? 8 : i === 2 ? 8 : 0) *
+            (0.25 + Math.random() * 0.25),
+          xv: (i < 2 ? i - 2 : i - 1) * 3,
+          s: 0.2,
+          a: 0,
+          el: element,
+        });
+      }
+    },
+    [],
+  );
 
   return (
     <ParticlesContext.Provider value={{ create }}>

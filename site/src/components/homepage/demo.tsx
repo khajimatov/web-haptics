@@ -8,9 +8,9 @@ import { useParticles } from "../particles";
 
 // add emoji sets
 const emojis = {
-  success: ["✅", "🎉", "✨"],
-  nudge: ["👈", "👉", "👆", "👇"],
-  error: ["❌", "💥", "🔥"],
+  success: ["✅", "🎉", "🤝", "💚", "👍"],
+  nudge: ["🫨", "🙉", "👉", "😳"],
+  error: ["⛔️", "🚨", "🚫", "🙅‍♀️"],
   long: ["🐝", "🍯"],
 };
 
@@ -31,13 +31,7 @@ export const Demo = () => {
   ) => {
     trigger(pattern, { intensity });
     if (x !== undefined && y !== undefined) {
-      create(
-        x,
-        y,
-        emojis[name as keyof typeof emojis][
-          Math.floor(Math.random() * emojis[name as keyof typeof emojis].length)
-        ],
-      );
+      create(x, y, emojis[name as keyof typeof emojis]);
     }
     const span = spanRefs.current.get(name);
     if (!span) return;
