@@ -8,15 +8,15 @@ export const defaultPatterns = {
   },
   nudge: {
     pattern: [80, 100, 200],
-    description: "A series of taps indicating a warning.",
+    description: "A series of taps indicating a nudge.",
     intensity: 0.5,
   },
   error: {
     pattern: [50, 50, 50, 50, 50],
-    description: "A series of taps indicating an error.",
+    description: "A series of taps indicating a warning or error.",
     intensity: 0.75,
   },
-  long: {
+  buzz: {
     pattern: [1000],
     description: "A long vibration.",
     intensity: 1,

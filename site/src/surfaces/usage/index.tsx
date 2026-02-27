@@ -5,7 +5,8 @@ import { useState } from "react";
 import * as Logos from "./logos";
 
 import { CodeBlock } from "../../components/codeblock";
-import { Toggle, ToggleGroup } from "../../components/toggle";
+import { useWebHaptics } from "web-haptics/react";
+import { useApp } from "../../context/app";
 
 const examples = {
   vanilla: `const haptics = new WebHaptics();
@@ -61,24 +62,28 @@ const frameworks = [
 ];
 
 export const Usage = () => {
+  const { debug } = useApp();
+  const { trigger } = useWebHaptics({ debug });
   const [frameworkIndex, setFrameworkIndex] = useState(0);
 
   return (
     <div className={styles.usage}>
-      <ToggleGroup>
+      <div className={styles.commands}>
         {frameworks.map((f, i) => (
-          <Toggle
+          <button
             key={f.name}
-            active={frameworkIndex === i}
             onClick={() => {
+              if (i === frameworkIndex) return;
               setFrameworkIndex(i);
+              trigger();
             }}
+            data-active={frameworkIndex === i}
           >
             <span className={styles.logo}>{f.logo}</span>
             <span className={styles.name}>{f.name}</span>
-          </Toggle>
+          </button>
         ))}
-      </ToggleGroup>
+      </div>
 
       <CodeBlock
         code={`import { useWebHaptics } from '${frameworks[frameworkIndex % frameworks.length].entrypoint}';

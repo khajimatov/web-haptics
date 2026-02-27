@@ -11,7 +11,7 @@ const emojis = {
   success: ["✅", "🎉", "🤝", "💚", "👍"],
   nudge: ["🫨", "🙉", "👉", "😳"],
   error: ["⛔️", "🚨", "🚫", "🙅‍♀️"],
-  long: ["🐝", "🍯"],
+  buzz: ["🐝", "🍯"],
 };
 
 export const Demo = ({
@@ -36,14 +36,14 @@ export const Demo = ({
     trigger(pattern);
     if (setShaking) {
       setShaking(true);
-      setTimeout(() => setShaking(false), name === "long" ? 1000 : 300);
+      setTimeout(() => setShaking(false), name === "buzz" ? 1000 : 300);
     }
     if (x !== undefined && y !== undefined) {
       create(
         x,
         y,
         emojis[name as keyof typeof emojis],
-        name === "long" ? 1000 : undefined,
+        name === "buzz" ? 1000 : undefined,
       );
     }
     const span = spanRefs.current.get(name);

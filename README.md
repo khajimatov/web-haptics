@@ -1,6 +1,6 @@
 # WebHaptics
 
-Haptic feedback for the web. Supports React, Vue, and Svelte.
+Haptic feedback for the mobile web. Supports React, Vue, and Svelte.
 
 ## Installation
 

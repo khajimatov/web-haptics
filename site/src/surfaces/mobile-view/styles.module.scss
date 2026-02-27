@@ -152,7 +152,7 @@
         &[data-pattern="error"] {
           --color: var(--red);
         }
-        &[data-pattern="long"] {
+        &[data-pattern="buzz"] {
           --color: var(--orange);
 
           &:before {
@@ -218,11 +218,11 @@
   }
 }
 
-.long {
-  animation: long 1s linear;
+.buzz {
+  animation: buzz 1s linear;
 }
 
-@keyframes long {
+@keyframes buzz {
   0% {
     transform: translate(0, 0);
   }

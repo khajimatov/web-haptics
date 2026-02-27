@@ -1,6 +1,6 @@
 # WebHaptics
 
-Haptic feedback for the web. Supports React, Vue, and Svelte.
+Haptic feedback for the mobile web. Supports React, Vue, and Svelte.
 
 ## Install
 
@@ -64,7 +64,7 @@ haptics.trigger("success");
 | `success` | `[50, 50, 50]`         | 0.5       |
 | `nudge`   | `[80, 100, 200]`       | 0.5       |
 | `error`   | `[50, 50, 50, 50, 50]` | 0.75      |
-| `long`    | `[1000]`               | 1.0       |
+| `buzz`    | `[1000]`               | 1.0       |
 
 You can also pass custom patterns directly:
 
