@@ -6,7 +6,9 @@ import { useState } from "react";
 import { Button } from "../button";
 
 export const Demo = () => {
-  const { trigger } = useWebHaptics({ debug: true });
+  const { trigger } = useWebHaptics({
+    debug: import.meta.env.DEV,
+  });
   const [intensity, setIntensity] = useState<number | undefined>(undefined);
 
   return (
