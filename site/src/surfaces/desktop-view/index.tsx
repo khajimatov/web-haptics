@@ -30,9 +30,11 @@ export default function DesktopView() {
               stiffness: 550,
               damping: 30,
               mass: 1.2,
+              delay: 0.2,
               rotate: {
                 duration: 0.4,
                 ease: "easeOut",
+                delay: 0.2,
               },
             }}
           >
@@ -56,11 +58,11 @@ export default function DesktopView() {
                 stiffness: 550,
                 damping: 30,
                 mass: 1.2,
-                delay: 0.1,
+                delay: 0.3,
                 rotate: {
                   duration: 0.4,
                   ease: "easeOut",
-                  delay: 0.1,
+                  delay: 0.3,
                 },
               }}
             >

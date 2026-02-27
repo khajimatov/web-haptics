@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 export const ScanText = () => {
   const id = useId();
-  const delay = 0.3;
+  const delay = 0.6;
   return (
     <motion.svg
       width="182"
