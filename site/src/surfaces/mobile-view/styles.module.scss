@@ -9,8 +9,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: flex-end;
 
-  padding: 2.25rem 1.25rem 27%;
+  padding: 2.25rem 1.25rem 28%;
 
   &[data-disabled="false"] {
     justify-content: flex-end;
@@ -59,7 +60,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
   width: 100%;
 }
 
@@ -109,11 +110,12 @@
   max-width: 32rem;
   width: 100%;
   margin: 0 auto;
+  container-type: inline-size;
 
   .buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    gap: 5cqi;
 
     .button {
       container-type: inline-size;
