@@ -60,7 +60,10 @@
     "url": "https://github.com/lochie/web-haptics/issues"
   },
   "files": [
-    "dist/*",
+    "dist/**/*.js",
+    "dist/**/*.mjs",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.mts",
     "LICENSE",
     "README.md"
   ],
