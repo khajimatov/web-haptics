@@ -1,5 +1,13 @@
 # site
 
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies [91cefb2]
+- Updated dependencies
+  - web-haptics@0.0.6
+
 ## 0.0.9
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # typescript-example
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [91cefb2]
+- Updated dependencies
+  - web-haptics@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes

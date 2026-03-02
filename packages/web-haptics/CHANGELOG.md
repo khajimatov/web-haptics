@@ -1,5 +1,12 @@
 # web-haptics
 
+## 0.0.6
+
+### Patch Changes
+
+- 91cefb2: tree-shaking
+- updated presets to match HIG
+
 ## 0.0.5
 
 ### Patch Changes
