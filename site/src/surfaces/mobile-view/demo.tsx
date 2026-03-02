@@ -8,7 +8,7 @@ import { useHaptics } from "../../hooks/useHaptics";
 // add emoji sets with [emoji, weight, canFlip?] tuples
 type EmojiEntry = [emoji: string, weight: number, canFlip?: boolean];
 
-const demoPresets = ["success", "warning", "nudge", "buzz"] as const;
+const demoPresets = ["success", "error", "nudge", "buzz"] as const;
 
 const emojis = {
   success: [
@@ -29,6 +29,12 @@ const emojis = {
     ["🙉", 3],
     ["👉", 2, true],
     ["😳", 1],
+  ] as EmojiEntry[],
+  error: [
+    ["⛔️", 3],
+    ["🚨", 1],
+    ["🚫", 3],
+    ["🙅‍♀️", 1, true],
   ] as EmojiEntry[],
   buzz: [
     ["🐝", 12, true],
@@ -101,7 +107,6 @@ export const Demo = ({
           >
             <button
               data-pattern={name}
-              aria-description={defaultPatterns[name].description}
               onClick={(e) => {
                 const x =
                   e.clientX ||

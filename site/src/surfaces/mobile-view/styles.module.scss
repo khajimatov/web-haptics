@@ -165,11 +165,11 @@
         &[data-pattern="success"] {
           --color: var(--green);
         }
-        &[data-pattern="warning"] {
-          --color: var(--orange);
-        }
         &[data-pattern="nudge"] {
           --color: var(--blue);
+        }
+        &[data-pattern="error"] {
+          --color: var(--red);
         }
         &[data-pattern="buzz"] {
           --color: var(--orange);
